@@ -1,22 +1,78 @@
-dateModified: 1658855967
+addresses:
+  fieldLayouts:
+    ef81dafd-7c45-4eae-802e-cf3e5737919d: null
+dateModified: 1658861134
+elementSources:
+  craft\elements\Entry:
+    -
+      disabled: false
+      key: '*'
+      tableAttributes:
+        - section
+        - postDate
+        - expiryDate
+        - author
+        - link
+      type: native
+    -
+      disabled: false
+      key: 'section:e62abf0b-5f0f-4e1f-bbfd-4bd1480e192f' # People
+      tableAttributes:
+        - 'field:f0362c79-d0f0-4117-9cda-ff55e0c50a97' # Profile Image
+        - 'field:95eb654d-2231-4f49-b0c5-2a1c9c1eebe9' # Job Title
+        - 'field:9ccff731-9c55-4c1e-bf91-b7455841c132' # Pronouns
+        - 'field:7d39b47a-b0da-4878-a45f-568644477e71' # Department
+        - 'field:d1fe7761-d948-41f4-8400-3fabbe53501c' # Leadership
+        - 'field:f9c6c299-6015-4673-8929-99f531e499cd' # Contact Email
+        - 'field:433a13e8-c868-4aad-a175-6de98725d1ee' # Contact Phone
+        - dateUpdated
+        - revisionCreator
+      type: native
 email:
   fromEmail: digital@umd.edu
   fromName: 'UR Directory'
   transportType: craft\mail\transportadapters\Sendmail
+fs:
+  images:
+    hasUrls: true
+    name: Images
+    settings:
+      path: '@baseAssetPath/uploads/images'
+    type: craft\fs\Local
+    url: /uploads/images
 meta:
   __names__:
-    82c2f2b8-a744-4155-aa61-43f9f1c1eb5d: Common
-    dee54e6d-949e-4492-8579-a6e037806a73: 'UR Directory'
-    e616d839-2143-420d-8b75-945552f5aa9f: 'UR Directory'
+    4a79d8da-92f6-4812-831c-1f6cd9e45df6: Images # Images
+    5a18cbd4-110b-40c0-8f03-458cd61a1393: 'Name First' # Name First
+    7d39b47a-b0da-4878-a45f-568644477e71: Department # Department
+    9ccff731-9c55-4c1e-bf91-b7455841c132: Pronouns # Pronouns
+    57b96333-4e19-468a-bd21-72a812ddbeb7: Person # Person
+    82c2f2b8-a744-4155-aa61-43f9f1c1eb5d: Common # Common
+    95eb654d-2231-4f49-b0c5-2a1c9c1eebe9: 'Job Title' # Job Title
+    433a13e8-c868-4aad-a175-6de98725d1ee: 'Contact Phone' # Contact Phone
+    3270d53d-69b9-4362-acad-bc55e4052541: 'UR Team' # UR Team
+    b8499164-494d-4b6f-b073-5185d851c895: 'Departments, Offices, Units' # Departments, Offices, Units
+    c0431233-367b-4a2a-b6e6-8dedfcc7b5d9: 'OMC Team' # OMC Team
+    d1fe7761-d948-41f4-8400-3fabbe53501c: Leadership # Leadership
+    dee54e6d-949e-4492-8579-a6e037806a73: 'UR Directory' # UR Directory
+    dfe4ba04-8dd6-40a3-a1dc-504f24635aae: 'Name Last' # Name Last
+    e4d64cf3-ac5c-455d-a2a1-10950876b358: About # About
+    e62abf0b-5f0f-4e1f-bbfd-4bd1480e192f: People # People
+    e616d839-2143-420d-8b75-945552f5aa9f: 'UR Directory' # UR Directory
+    f0362c79-d0f0-4117-9cda-ff55e0c50a97: 'Profile Image' # Profile Image
+    f9c6c299-6015-4673-8929-99f531e499cd: 'Contact Email' # Contact Email
+plugins:
+  feed-me:
+    edition: standard
+    enabled: true
+    schemaVersion: 4.4.0
+  redactor:
+    edition: standard
+    enabled: true
+    schemaVersion: 2.3.0
 system:
-  edition: solo
+  edition: pro
   live: true
   name: 'UR Directory'
   schemaVersion: 4.0.0.9
   timeZone: America/Los_Angeles
-users:
-  allowPublicRegistration: false
-  defaultGroup: null
-  photoSubpath: null
-  photoVolumeUid: null
-  requireEmailVerification: true

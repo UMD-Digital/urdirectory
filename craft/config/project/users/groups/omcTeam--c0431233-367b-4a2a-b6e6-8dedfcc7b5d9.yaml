@@ -1,0 +1,11 @@
+description: ''
+handle: omcTeam
+name: 'OMC Team'
+permissions:
+  - accesscp
+  - 'utility:clear-caches'
+  - 'utility:db-backup'
+  - 'utility:find-replace'
+  - 'utility:php-info'
+  - 'utility:system-messages'
+  - 'utility:system-report'

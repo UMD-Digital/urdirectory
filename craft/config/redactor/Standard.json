@@ -1,0 +1,40 @@
+{
+  "buttons": [
+    "html",
+    "formatting",
+    "bold",
+    "italic",
+    "deleted",
+    "sup",
+    "sub",
+    "unorderedlist",
+    "orderedlist",
+    "line",
+    "link",
+    "embed"
+  ],
+  "pasteBlockTags": ["ul", "ol", "li", "p"],
+  "pasteInlineTags": ["a", "br", "strong", "em", "del"],
+  "plugins": ["alignment", "table", "fullscreen", "video"],
+  "formatting": ["p", "blockquote"],
+  "autoparseImages": false,
+  "autoparseVideo": false,
+  "toolbarFixed": true,
+  "dragUpload": false,
+  "formattingAdd": {
+    "code": {
+      "title": "<code>Inline Code</code>",
+      "api": "module.inline.format",
+      "args": {
+        "tag": "code"
+      }
+    },
+    "pre": {
+      "title": "Code Block",
+      "api": "module.block.format",
+      "args": {
+        "tag": "pre"
+      }
+    }
+  }
+}

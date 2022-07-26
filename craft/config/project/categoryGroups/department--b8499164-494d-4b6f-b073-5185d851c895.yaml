@@ -1,0 +1,46 @@
+defaultPlacement: end
+fieldLayouts:
+  39566a04-fd3d-4dac-bb09-d34dc8d77ee9:
+    tabs:
+      -
+        elementCondition: null
+        elements:
+          -
+            autocapitalize: true
+            autocomplete: false
+            autocorrect: true
+            class: null
+            disabled: false
+            elementCondition: null
+            id: null
+            instructions: null
+            label: null
+            max: null
+            min: null
+            name: null
+            orientation: null
+            placeholder: null
+            readonly: false
+            requirable: false
+            size: null
+            step: null
+            tip: null
+            title: null
+            type: craft\fieldlayoutelements\TitleField
+            uid: 21d996ea-3cba-4be9-b5f7-b735fd391602
+            userCondition: null
+            warning: null
+            width: 100
+        name: Content
+        uid: 75eb7435-66c9-4729-b068-2c37cf46c84d
+        userCondition: null
+handle: department
+name: 'Departments, Offices, Units'
+siteSettings:
+  dee54e6d-949e-4492-8579-a6e037806a73: # UR Directory
+    hasUrls: false
+    template: null
+    uriFormat: null
+structure:
+  maxLevels: 1
+  uid: b1401014-70f3-408f-bdf1-464cb9da39cb

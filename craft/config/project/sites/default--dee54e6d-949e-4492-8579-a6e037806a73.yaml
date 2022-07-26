@@ -4,5 +4,5 @@ hasUrls: true
 language: en-US
 name: 'UR Directory'
 primary: true
-siteGroup: e616d839-2143-420d-8b75-945552f5aa9f
+siteGroup: e616d839-2143-420d-8b75-945552f5aa9f # UR Directory
 sortOrder: 1

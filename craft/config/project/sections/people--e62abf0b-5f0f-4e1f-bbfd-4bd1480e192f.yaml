@@ -1,0 +1,12 @@
+defaultPlacement: end
+enableVersioning: true
+handle: people
+name: People
+propagationMethod: all
+siteSettings:
+  dee54e6d-949e-4492-8579-a6e037806a73: # UR Directory
+    enabledByDefault: true
+    hasUrls: false
+    template: null
+    uriFormat: null
+type: channel

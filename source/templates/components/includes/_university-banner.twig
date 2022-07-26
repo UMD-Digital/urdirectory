@@ -1,21 +1,21 @@
-{% set optionAdmissions = universityBanner.universityBannerAdmissions.value %}
-{% set optionSchools = universityBanner.universityBannerSchools.value %}
-{% set optionNews = universityBanner.universityBannerNews.value %}
-{% set optionEvents = universityBanner.universityBannerEvents.value %}
-{% set optionGift = universityBanner.universityBannerGift.value %}
-{% set giftURL = universityBanner.genericUrl ?? true %}
-{% set optionSearch = universityBanner.universityBannerSearch.value %}
-{% set searchType = optionSearch == 'domain' ? optionSearch : true %}
+{# {% set optionAdmissions = universityBanner.universityBannerAdmissions.value %} #}
+{# {% set optionSchools = universityBanner.universityBannerSchools.value %} #}
+{# {% set optionNews = universityBanner.universityBannerNews.value %} #}
+{# {% set optionEvents = universityBanner.universityBannerEvents.value %} #}
+{# {% set optionGift = universityBanner.universityBannerGift.value %} #}
+{# {% set giftURL = universityBanner.genericUrl ?? true %} #}
+{# {% set optionSearch = universityBanner.universityBannerSearch.value %} #}
+{# {% set searchType = optionSearch == 'domain' ? optionSearch : true %} #}
 
 {% set attributes = {
-  admissions: optionAdmissions == 'show' ? true : false,
-  schools: optionSchools == 'show' ? true : false,
-  news: optionNews == 'show' ? true : false,
-  events: optionEvents == 'show' ? true : false,
-  gift: optionGift == 'show' ? giftURL : false,
-  search: optionSearch != 'hide' ? searchType : false,
+  admissions: false,
+  schools: false,
+  news: true,
+  events: false,
+  gift: true,
+  search: true,
   padding: '20',
-  size: '1180px'
+  size: '1024px'
 } %}
 
 <umd-utility-header {{ attr(attributes) }}></umd-utility-header>

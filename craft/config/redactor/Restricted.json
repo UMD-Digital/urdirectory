@@ -1,0 +1,9 @@
+{
+  "buttons": ["html", "bold", "italic", "deleted", "sup", "sub"],
+  "pasteBlockTags": ["p"],
+  "pasteInlineTags": ["br", "strong", "em", "del", "sup", "sub"],
+  "autoparseImages": false,
+  "autoparseVideo": false,
+  "toolbarFixed": true,
+  "dragUpload": false
+}

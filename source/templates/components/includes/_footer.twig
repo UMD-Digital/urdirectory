@@ -1,61 +1,39 @@
-{% import './components/helpers/_generate-url' as GenerateUrlHelper %}
-{% import './components/helpers/_phone-link' as PhoneHelper %}
-{% import './components/macros/blocks/_contact' as Contact %}
-{% import './components/macros/elements/_links' as LinksElement %}
-
-{% set addressTitle = footer.genericTitle %}
-{% set addressTitleLink = footer.entriesLinksSingle.one() %}
-{% set address = footer.genericAddress.one() %}
-{% set socialLinks = socialMedia.matrixSocialLink.all() %}
-{% set footerLinks = footer.entriesLinksMultiple.all() %}
-
-{% macro SocialChannels(socialLinks) %}
-  {% for block in socialLinks %}
-    {{ block.socialType }}="{{ block.socialLink }}"
-  {% else %}
-    {{ null }}
-  {% endfor %}
-{% endmacro %}
-
-{% macro FooterLinkItem(linkEntry) %}
-  {% set link = linkEntry.neoLink.one() %}
-  {% set text = link.genericHeading ?? linkEntry.title %}
-
-  {% set notInternal = link.type == 'downloadLink'
-    or link.type == 'externalLink'
-  %}
-
-  {% set openNewWindow = link
-    and (link.optionTarget == 'blank' or link.type == 'downloadLink')
-  %}
-
-  {% set attributes = {
-    aria: {
-      label: link.genericPlainText ?? null
-    },
-    target: openNewWindow ? '_blank' : null,
-    rel: notInternal ? 'noopener' : null
-  } %}
-
-  <a {{ GenerateUrlHelper.GetHref(link) }} {{ attr(attributes) }}>{{ text }}</a>
-{% endmacro %}
-
-{% macro FooterLinks(footerLinks) %}
-  <div slot="links">
-    {% for linkEntry in footerLinks %}
-      {{ _self.FooterLinkItem(linkEntry) }}
-    {% endfor %}
-  </div>
-{% endmacro %}
+{% set footerAttributes = {
+  youtube: 'https://www.youtube.com/user/UMD2101',
+  facebook: 'https://www.facebook.com/UnivofMaryland',
+  instagram: 'https://www.instagram.com/univofmaryland/',
+  twitter: 'https://twitter.com/UofMaryland'
+} %}
 
 <footer>
-  <umd-footer-small {{ _self.SocialChannels(socialLinks) }}>
+  <umd-footer-small {{ attr(footerAttributes) }}>
     <div slot="contact">
-      {{ addressTitle or addressTitleLink
-        ? Contact.Title(addressTitle, addressTitleLink) }}
-      {{ address ? Contact.Address(address) }}
-      {{ Contact.PhoneEmail(footer) }}
+      <address>
+        <a data-address="title"
+          href="https://urhome.umd.edu"
+          rel="noopener"
+          target="_blank">
+          <span>Division of University Relations</span>
+        </a>
+        <span data-address="street">
+          1132 Thomas V. Miller, Jr. Administration Building
+        </span>
+        <span data-address="city-state-zip">College Park, MD 20742-5025</span>
+      </address>
+      <p data-address="phone-email">
+        <a href="tel:+13014054680" aria-label="call: 301-405-4680">
+          <span aria-hidden="true">301.405.4680</span>
+        </a>
+        <a href="mailto:universityrelations@umd.edu">
+          universityrelations@umd.edu
+        </a>
+      </p>
     </div>
-    {{ footerLinks ? _self.FooterLinks(footerLinks) }}
+    <div slot="links">
+      <a href="https://form.asana.com/?k=Oe14_KGBxFVwzuPlxX04aw&d=476929634570367"
+        target="_blank">
+        Feedback
+      </a>
+    </div>
   </umd-footer-small>
 </footer>

@@ -1,0 +1,19 @@
+columnSuffix: tvriwjcc
+contentColumnType: string(48)
+fieldGroup: 82c2f2b8-a744-4155-aa61-43f9f1c1eb5d # Common
+handle: phone
+instructions: null
+name: 'Contact Phone'
+searchable: false
+settings:
+  byteLimit: null
+  charLimit: 12
+  code: true
+  columnType: null
+  initialRows: 4
+  multiline: false
+  placeholder: '###-###-####'
+  uiMode: normal
+translationKeyFormat: null
+translationMethod: none
+type: craft\fields\PlainText

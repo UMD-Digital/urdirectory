@@ -1,0 +1,25 @@
+columnSuffix: null
+contentColumnType: string
+fieldGroup: 82c2f2b8-a744-4155-aa61-43f9f1c1eb5d # Common
+handle: department
+instructions: null
+name: Department
+searchable: false
+settings:
+  allowLimit: false
+  allowMultipleSources: false
+  allowSelfRelations: false
+  branchLimit: null
+  localizeRelations: false
+  maxRelations: null
+  minRelations: null
+  selectionLabel: 'Add to a Department'
+  showSiteMenu: true
+  source: 'group:b8499164-494d-4b6f-b073-5185d851c895' # Departments, Offices, Units
+  sources: '*'
+  targetSiteId: null
+  validateRelatedElements: false
+  viewMode: null
+translationKeyFormat: null
+translationMethod: site
+type: craft\fields\Categories

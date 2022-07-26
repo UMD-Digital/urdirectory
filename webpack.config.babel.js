@@ -52,12 +52,12 @@ module.exports = env => {
       patterns: [
         {
           from: 'static/',
-          to: '[path][name].[ext]',
+          to: '[path][name][ext]',
           context: 'source/assets',
         },
         {
           from: 'craft/',
-          to: '[path][name].[ext]',
+          to: '[path][name][ext]',
           context: 'source/assets',
         },
         {
