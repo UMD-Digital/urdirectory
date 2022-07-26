@@ -1,0 +1,62 @@
+{% macro RefactorText(richText) %}
+  {% set replacements = {
+    '<table>': "<figure class='table'><table>",
+    '</table>': '</table></figure>',
+    '<h1>': '<h2 class="medium-serif">',
+    '</h1>': '</h2>',
+    '<h2>': '<h2 class="medium-serif">',
+    '<h3>': '<h3 class="medium-san-serif">',
+    '<h4>': '<h4 class="normal-serif">',
+    '<h5>': '<h5 class="normal-san-serif">',
+    '<br>': '<br aria-hidden="true" />'
+  } %}
+
+  {% set refactoredRichText = richText|replace(replacements) %}
+
+  {{ refactoredRichText|raw }}
+{% endmacro %}
+
+{% macro Block(richText, sizing, additionalAttr) %}
+  {% set attributes = {
+    class: 'rich-text'
+  } %}
+
+  {% if sizing == 'smaller' %}
+    {% set attributes = {
+      class: 'rich-text extra-small-san-serif'
+    } %}
+  {% endif %}
+
+  {% if sizing == 'larger' %}
+    {% set attributes = {
+      class: 'rich-text medium-san-serif'
+    } %}
+  {% endif %}
+
+  {% set attributes = additionalAttr
+    ? attributes|merge(additionalAttr)
+    : attributes
+  %}
+
+  <div {{ attr(attributes) }}>
+    {{ _self.RefactorText(richText) }}
+  </div>
+{% endmacro %}
+
+{% macro WithImage(block) %}
+  {% import './components/macros/elements/_image' as ImageElement %}
+
+  {% set attributes = {
+    class: 'rich-text',
+    data: {
+      alignment: block.alignment,
+      size: block.width
+    }
+  } %}
+  {% set image = block.assetsImagesSingle.one() %}
+
+  <umd-image-text {{ attr(attributes) }}>
+    {{ image ? ImageElement.Figure(image, block.caption) }}
+    {{ _self.RefactorText(block.genericRichText) }}
+  </umd-image-text>
+{% endmacro %}

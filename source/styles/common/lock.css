@@ -1,0 +1,22 @@
+umd-lock {
+  padding: 0 20px;
+  max-width: 1400px;
+  margin: 0 auto;
+  display: block;
+
+  @media (--medium-min) {
+    padding: 0 20px;
+  }
+}
+
+umd-lock[data-size='small'] {
+  max-width: 800px;
+}
+
+umd-lock[data-size='medium'] {
+  max-width: 960px;
+}
+
+umd-lock[data-size='large'] {
+  max-width: 1180px;
+}

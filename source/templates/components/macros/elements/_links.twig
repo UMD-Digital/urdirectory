@@ -1,0 +1,123 @@
+{# Basic Link #}
+
+{% macro Link(linkEntry, additionalAttr, icons, overrideText) %}
+  {% import './components/helpers/_generate-url' as GenerateUrlHelper %}
+
+  {% set link = linkEntry.neoLink.level(1).one() ?? null %}
+  {% set text = link.genericHeading ?? linkEntry.title %}
+  {% set text = overrideText ?? text %}
+  {% set accessibleText = link and link.genericPlainText
+    ? link.genericPlainText
+    : false
+  %}
+
+  {% set notInternal = link
+    and (link.type == 'downloadLink' or link.type == 'externalLink')
+  %}
+
+  {% set openNewWindow = link
+    and (link.optionTarget == 'blank' or link.type == 'downloadLink')
+  %}
+
+  {% set attributes = {
+    target: openNewWindow ? '_blank' : null,
+    rel: notInternal ? 'noopener' : null
+  } %}
+
+  {% if additionalAttr %}
+    {% set attributes = attributes|merge(additionalAttr) %}
+  {% endif %}
+
+  <a {{ GenerateUrlHelper.GetHref(link) }} {{ attr(attributes) }}>
+    {% if accessibleText %}
+      <span data-link="text" aria-hidden="true">{{ text }}</span>
+      <span class="sr-only">{{ accessibleText }}</span>
+    {% else %}
+      <span data-link="text">{{ text }}</span>
+    {% endif %}
+    {{ icons ? _self.SelectIcon(link) : '' }}
+  </a>
+{% endmacro %}
+
+{# Icon Logic #}
+
+{% macro SelectIcon(link) %}
+  {% if link %}
+    {% if link.type == 'externalLink' and link.optionTarget == 'blank' %}
+      <span aria-hidden="true" data-icon="new-window">
+        {% include './components/icons/_new-window.twig' %}
+      </span>
+    {% endif %}
+    {% if link.type == 'downloadLink' and link.assetsFilesSingle.one() %}
+      {% if link.assetsFilesSingle.one().url ends with '.pdf' %}
+        <span aria-hidden="true" data-icon="pdf">
+          {% include './components/icons/_pdf.twig' %}
+        </span>
+      {% else %}
+        <span aria-hidden="true" data-icon="document">
+          {% include './components/icons/_doc.twig' %}
+        </span>
+      {% endif %}
+    {% endif %}
+  {% endif %}
+{% endmacro %}
+
+{# Link with Overridden text #}
+
+{% macro OverrideText(linkEntry, overrideText) %}
+  {{ _self.Link(linkEntry, {}, false, overrideText) }}
+{% endmacro %}
+
+{# Link with an icon to the right of the text #}
+
+{% macro WithIcon(linkEntry) %}
+  {{ _self.Link(linkEntry, {}, true) }}
+{% endmacro %}
+
+{# Link with overridden text, and an icon #}
+
+{% macro OverrideTextWithIcon(linkEntry, overrideText, additionalAttr) %}
+  {{ _self.Link(linkEntry, additionalAttr, true, overrideText) }}
+{% endmacro %}
+
+{# Call to action item #}
+
+{% macro callToAction(callToAction, additionalAttr) %}
+  {% set attributes = {
+    class: 'call-to-action',
+    data: {
+      color: 'red',
+      style: 'underlined'
+    }
+  } %}
+
+  {% if additionalAttr %}
+    {% set attributes = attributes|merge(additionalAttr) %}
+  {% endif %}
+
+  {{ _self.Link(callToAction, attributes, false) }}
+{% endmacro %}
+
+{# Call to Action Block #}
+
+{% macro callToActionBlock(links, alignment, layout) %}
+  {% set attributes = {
+    data: {
+      alignment: alignment ?? null,
+      'links-layout': layout ? 'column' : 'row'
+    }
+  } %}
+
+  <div {{ attr(attributes) }}>
+    {% for link in links %}
+      {% set additionalAttr = {
+        data: {
+          color: link.color ?? 'red',
+          style: link.style ?? 'outlined'
+        }
+      } %}
+
+      {{ _self.callToAction(link.entriesLinksSingle.one(), additionalAttr) }}
+    {% endfor %}
+  </div>
+{% endmacro %}

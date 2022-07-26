@@ -1,0 +1,33 @@
+{% set entryType = 'main' %}
+{% set cssFile = entryType %}
+{% set jsFile = entryType %}
+
+{% set pageTitle = 'Home' %}
+{% set pageBackground = '/backgrounds/home.png' %}
+
+{% extends '_layout' %}
+
+{# Start Blocks #}
+
+{% block main %}
+  <umd-lock data-size="medium" id="main">
+    <umd-page-header>
+      <h1 class="sr-only">
+        {{ siteName }}
+      </h1>
+      <div class="rich-text">
+        <p>
+          <em>Login to update the University Relations Directory.</em>
+        </p>
+      </div>
+      <div data-page="link" data-links-layout="column" data-alignment="center">
+        <a href="/admin"
+          class="call-to-action"
+          data-color="red"
+          data-style="outlined">
+          <span data-link="text">login</span>
+        </a>
+      </div>
+    </umd-page-header>
+  </umd-lock>
+{% endblock %}

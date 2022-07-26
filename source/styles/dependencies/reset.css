@@ -1,0 +1,125 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  line-height: 1;
+  color: black;
+  background: var(--white);
+  font-family: var(--sansSerif);
+  color: var(--grayDark);
+  font-size: 18px;
+  line-height: 1em;
+  vertical-align: baseline;
+  min-width: 280px;
+}
+
+ol,
+ul {
+  list-style: none;
+}
+
+table {
+  border-collapse: separate;
+  border-spacing: 0;
+
+  & caption,
+  & th,
+  & td {
+    text-align: left;
+    font-weight: normal;
+  }
+}
+
+blockquote,
+q {
+  quotes: '' '';
+
+  &:before,
+  &:after {
+    content: '';
+  }
+}
+
+body {
+  overscroll-behavior: none;
+  position: relative;
+}
+
+main {
+  display: block;
+  overflow: hidden;
+  position: relative;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin-bottom: 0;
+  font-size: 16px;
+  line-height: 1em;
+  font-weight: normal;
+}
+
+p {
+  margin-bottom: 20px;
+  line-height: 1.5em;
+}
+
+p:last-child {
+  margin-bottom: 0;
+}
+
+em {
+  font-style: italic;
+}
+
+strong {
+  font-weight: bold;
+}
+
+a {
+  color: var(--umdLink);
+  fill: var(--umdLink);
+  font-weight: var(--semiBold);
+  transition: color 0.3s, fill 0.3s;
+
+  &:hover,
+  &:focus {
+    color: var(--umdLinkHover);
+    fill: var(--umdLinkHover);
+  }
+
+  &[disabled] {
+    cursor: not-allowed;
+  }
+}
+
+hr {
+  display: none;
+}
+
+abbr {
+  text-decoration: none;
+  cursor: help;
+}
+
+img {
+  max-width: 100%;
+}
+
+address {
+  font-style: normal;
+}
+
+button {
+  border: none;
+  background-color: transparent;
+  cursor: pointer;
+  font-family: var(--sansSerif);
+}

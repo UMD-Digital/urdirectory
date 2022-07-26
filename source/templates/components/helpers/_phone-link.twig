@@ -1,0 +1,38 @@
+{% macro Link(phone, extension) %}
+  {% set telHref = 'tel:+1'
+    ~ (phone|replace({
+      '(': '',
+      ')': '',
+      ' ': '',
+      '—': '',
+      '–': '',
+      '-': '',
+      '.': ''
+    }))
+  %}
+  {% set telDisplay =
+    phone|replace({
+      ' ': '.',
+      '—': '.',
+      '–': '.',
+      '-': '.'
+    })
+  %}
+  {% set telSrOnly =
+    phone|replace({
+      ' ': '-',
+      '—': '-',
+      '–': '-',
+      '.': '-'
+    })
+  %}
+
+  {% set attributes = {
+    href: telHref,
+    aria: {
+      label: "call: #{telSrOnly}"
+    }
+  } %}
+
+  <a {{ attr(attributes) }}><span aria-hidden="true">{{ telDisplay }}</span></a>
+{% endmacro %}

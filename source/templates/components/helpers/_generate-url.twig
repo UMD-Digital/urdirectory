@@ -1,0 +1,40 @@
+{% macro GetHref(link) %}
+  {% set hrefAttr = 'disabled' %}
+
+  {% if link %}
+    {% if link.type == 'internalLink' and link.entriesAllSingle.one() %}
+      {% set hrefAttr = "href=#{link.entriesAllSingle.one().url}" %}
+    {% endif %}
+    {% if link.type == 'externalLink' and link.genericUrl %}
+      {% set hrefAttr = "href=#{link.genericUrl}" %}
+    {% endif %}
+    {% if link.type == 'downloadLink' and link.assetsFilesSingle.one() %}
+      {% set hrefAttr = "href=#{link.assetsFilesSingle.one().url}" %}
+    {% endif %}
+    {% if link.type == 'typesLink' and link.categoriesTypesSingle.one() %}
+      {% set hrefAttr = "href=#{link.categoriesTypesSingle.one().url}" %}
+    {% endif %}
+    {% if
+      link.type == 'calendarsLink' and link.categoriesCalendarsSingle.one() %}
+      {% set hrefAttr = "href=#{link.categoriesCalendarsSingle.one().url}" %}
+    {% endif %}
+  {% endif %}
+
+  {{ hrefAttr }}
+{% endmacro %}
+
+{# {% macro GetHref(link) %}
+  {% set hrefAttr = 'disabled' %}
+
+  {% if link.type == 'internalLink' and link.entryToLink.one() %}
+    {% set hrefAttr = "href=#{link.entryToLink.one().url}" %}
+  {% endif %}
+  {% if link.type == 'externalLink' and link.linkUrl %}
+    {% set hrefAttr = "href=#{link.linkUrl}" %}
+  {% endif %}
+  {% if link.type == 'downloadLink' and link.downloadAsset.one() %}
+    {% set hrefAttr = "href=#{link.downloadAsset.one().url}" %}
+  {% endif %}
+
+  {{ hrefAttr }}
+{% endmacro %} #}

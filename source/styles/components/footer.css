@@ -1,0 +1,83 @@
+footer {
+  display: block;
+}
+umd-footer-small [slot='contact'] {
+  & [data-address='title'] {
+    color: var(--grayDark);
+    display: inline-block;
+    font-weight: 700;
+    line-height: 1.3em;
+    margin-bottom: 0.3em;
+
+    &[href]:hover,
+    &[href]:active {
+      color: var(--red);
+    }
+  }
+
+  & address {
+    align-items: flex-start;
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 10px;
+    font-style: normal;
+
+    & span {
+      margin-bottom: 0.3em;
+
+      &:last-child {
+        margin-bottom: 0;
+      }
+    }
+  }
+
+  & [data-address='phone-email'] {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+
+    & a {
+      color: #db0f2a;
+      display: inline-block;
+      font-weight: 400;
+      margin-bottom: 10px;
+      position: relative;
+
+      &:hover,
+      &:focus {
+        color: var(--redDark);
+      }
+    }
+  }
+
+  @media (--desktop-min) {
+    & [data-address='phone-email'] {
+      flex-direction: row;
+
+      & a {
+        margin-right: 20px;
+        margin-bottom: 0;
+
+        &:after {
+          background-color: var(--gray);
+          border-radius: 50%;
+          content: '';
+          display: block;
+          height: 4px;
+          position: absolute;
+          top: 50%;
+          right: -13px;
+          width: 4px;
+        }
+
+        &:last-child {
+          margin-right: 0;
+
+          &:after {
+            display: none;
+          }
+        }
+      }
+    }
+  }
+}

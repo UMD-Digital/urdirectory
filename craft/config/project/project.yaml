@@ -1,0 +1,22 @@
+dateModified: 1658855967
+email:
+  fromEmail: digital@umd.edu
+  fromName: 'UR Directory'
+  transportType: craft\mail\transportadapters\Sendmail
+meta:
+  __names__:
+    82c2f2b8-a744-4155-aa61-43f9f1c1eb5d: Common
+    dee54e6d-949e-4492-8579-a6e037806a73: 'UR Directory'
+    e616d839-2143-420d-8b75-945552f5aa9f: 'UR Directory'
+system:
+  edition: solo
+  live: true
+  name: 'UR Directory'
+  schemaVersion: 4.0.0.9
+  timeZone: America/Los_Angeles
+users:
+  allowPublicRegistration: false
+  defaultGroup: null
+  photoSubpath: null
+  photoVolumeUid: null
+  requireEmailVerification: true

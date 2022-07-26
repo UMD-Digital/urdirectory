@@ -1,0 +1,65 @@
+{
+  "name": "ur-directory",
+  "version": "1.0.0",
+  "main": "index.js",
+  "author": "digital@umd.edu",
+  "license": "MIT",
+  "scripts": {
+    "deploy:staging": "./node_modules/.bin/webpack --env NODE_ENV=production && babel-node deploy/craft.js staging",
+    "sync:uploads": "./pulluploads.sh && cp -R source/assets/uploads craft/web",
+    "build:prod": "./node_modules/.bin/webpack --env NODE_ENV=production",
+    "build:dev": "./node_modules/.bin/webpack --env NODE_ENV=development",
+    "start": "./node_modules/.bin/webpack -w --env NODE_ENV=development",
+    "cleanup": "rm -rf ./craft/web/* ./craft/templates/*"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.18.9",
+    "@babel/node": "^7.18.9",
+    "@babel/preset-env": "^7.18.9",
+    "@universityofmaryland/footersmall": "^0.0.10",
+    "@universityofmaryland/utilityheader": "^1.0.2",
+    "babel-loader": "^8.2.5",
+    "colors": "^1.4.0",
+    "copy-webpack-plugin": "^11.0.0",
+    "css-loader": "^6.7.1",
+    "css-minimizer-webpack-plugin": "^4.0.0",
+    "deploy": "git+ssh://git@github.com:UMD-Digital/deployment-scripts.git",
+    "mini-css-extract-plugin": "^2.6.1",
+    "postcss": "^8.4.14",
+    "postcss-custom-media": "^8.0.2",
+    "postcss-import": "^14.1.0",
+    "postcss-loader": "^7.0.1",
+    "postcss-nesting": "^10.1.10",
+    "postcss-preset-env": "^7.7.2",
+    "prettier-plugin-twig-melody": "^0.4.6",
+    "style-loader": "^3.3.1",
+    "terser-webpack-plugin": "^5.3.3",
+    "webpack": "^5.74.0",
+    "webpack-cli": "^4.10.0",
+    "webpack-shell-plugin-next": "^2.2.2"
+  },
+  "browserslist": [
+    "Explorer 11"
+  ],
+  "babel": {
+    "sourceMaps": "both",
+    "presets": [
+      [
+        "@babel/preset-env",
+        {
+          "useBuiltIns": "usage",
+          "corejs": 3
+        }
+      ]
+    ]
+  },
+  "postcss": {
+    "map": false,
+    "plugins": {
+      "postcss-import": {},
+      "postcss-preset-env": {
+        "stage": 0
+      }
+    }
+  }
+}

@@ -1,0 +1,23 @@
+# npm
+/node_modules
+*.log
+
+# assets
+/source/assets/uploads
+
+# tickering directory
+/.idea
+/tinker
+
+# craft local
+/craft/web
+/craft/templates
+/craft/storage
+*.env
+
+# any db
+*.sql
+
+# macOS specific
+*.DS_Store
+

@@ -1,0 +1,57 @@
+/* Base (site wide) styles */
+
+body {
+  backgroun-position: 50% 50%;
+  background-repeat: no-repeat;
+  background-size: cover;
+  display: flex;
+  min-height: 100vh;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+main {
+  padding: 20px 0 40px;
+
+  & .copy-table-controls {
+    margin-bottom: 0;
+  }
+
+  & [data-page='title'] {
+    font-weight: var(--bold);
+    margin-bottom: 20px;
+  }
+
+  & umd-page-header {
+    background-color: var(--white);
+    box-shadow: 3px 3px 5px 0 var(--shadowLight);
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    margin: 0 auto;
+    padding: 30px;
+    max-width: 600px;
+
+    @media (--large-min) {
+      padding: 60px;
+    }
+
+    & [data-page='logo'] {
+      margin-bottom: 40px;
+      max-width: 300px;
+    }
+  }
+
+  & section {
+    & .large-san-serif {
+      font-weight: var(--bold);
+      margin-bottom: 40px;
+    }
+  }
+
+  & [data-content='events-table'] figure {
+    border: 1px solid var(--grayLight);
+    max-height: 70vh;
+    overflow-y: scroll;
+  }
+}

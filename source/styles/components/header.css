@@ -1,0 +1,354 @@
+:root {
+  --headerLinkHover: var(--red);
+  --headerLinkHoverOffWhite: var(--umdLinkOffWhite);
+}
+
+body .body-overlay {
+  display: block;
+  opacity: 0;
+  transition: opacity 0.3s ease-in-out;
+}
+
+body[data-overlay='true'] .body-overlay {
+  background-color: var(--shadow);
+  cursor: pointer;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  top: 0;
+  z-index: 9;
+  opacity: 1;
+  transition: opacity 0.3s;
+}
+
+umd-header-banner {
+  display: block;
+}
+
+umd-header-banner umd-lock {
+  position: relative;
+}
+
+umd-header-banner a.skip-content {
+  background-color: var(--white);
+  box-shadow: 0 0 3px 0 var(--shadow);
+  border-radius: 5px;
+  font-weight: var(--bold);
+  padding: 10px 20px;
+  position: absolute;
+  left: 20px;
+  top: -50px;
+  z-index: 2147483647; /* highest z-index value possible */
+  text-decoration: none;
+  transition: background-color 0.3s, color 0.3s, opacity 0.3s, top 0.3s;
+  overflow: hidden;
+  width: auto;
+
+  &:focus {
+    top: 10px;
+    width: auto;
+  }
+
+  @media (--desktop-min) {
+    &:focus {
+      top: 20px;
+    }
+  }
+}
+
+header {
+  align-items: center;
+  background-color: var(--white);
+  box-shadow: 0 0 3px 0 var(--shadow);
+  display: flex;
+  min-height: 60px;
+  position: sticky;
+  top: 0;
+  z-index: 99;
+  width: 100%;
+
+  & umd-lock {
+    align-items: center;
+    display: flex;
+    height: 100%;
+    width: 100%;
+  }
+}
+
+header #site-title {
+  color: var(--black);
+  font-size: 20px;
+  font-weight: var(--bold);
+  letter-spacing: 0;
+  line-height: 1.2em;
+  padding: 20px 0;
+  text-decoration: none;
+  transition: font-size 0.3s, color 0.3s;
+
+  &:hover,
+  &:focus {
+    color: var(--red);
+  }
+
+  & img {
+    height: 22px;
+    transition: height 0.3s;
+    width: auto;
+    max-width: 220px;
+  }
+
+  @media (--medium-min) {
+    font-size: 24px;
+
+    & img {
+      height: 24px;
+    }
+  }
+}
+
+header button.main-menu {
+  border-radius: 5px;
+  display: block;
+  flex: none;
+  height: 50px;
+  margin: 5px;
+  margin-right: -20px;
+  margin-left: auto;
+  position: relative;
+  padding: 10px;
+  width: 50px;
+
+  @media (--desktop-min) {
+    display: none;
+  }
+
+  & span {
+    background-color: var(--grayDark);
+    display: block;
+    height: 2px;
+    position: absolute;
+    top: 50%;
+    transition: all 0.3s;
+    width: 30px;
+
+    &:first-of-type {
+      top: 30%;
+    }
+
+    &:last-of-type {
+      top: 70%;
+    }
+  }
+
+  &:hover span,
+  &:focus span {
+    background-color: var(--headerLinkHover);
+  }
+
+  &[aria-expanded='true'] span {
+    opacity: 0;
+    background-color: var(--headerLinkHover);
+
+    &:first-of-type {
+      opacity: 1;
+      top: 0;
+      transform: rotate(45deg) translate(17px, 17px);
+    }
+    &:last-of-type {
+      opacity: 1;
+      top: 0;
+      transform: rotate(-45deg) translate(-17px, 17px);
+    }
+  }
+}
+
+header button.close-menu {
+  background-color: var(--offWhite);
+  color: var(--bodyText);
+  display: flex;
+  justify-content: flex-end;
+  padding: 10px 15px;
+  transition: background-color 0.3s;
+  width: 100%;
+
+  & svg {
+    fill: currentColor;
+    height: 20px;
+    transition: fill 0.3s, filter 0.3s;
+    width: 20px;
+  }
+
+  &:hover,
+  &:focus {
+    background-color: var(--grayLight);
+
+    & svg {
+      fill: var(--umdLinkHover);
+    }
+  }
+}
+
+umd-nav-item {
+  display: block;
+  position: relative;
+
+  & [data-nav-item='action'] {
+    align-items: center;
+    display: flex;
+    justify-content: space-between;
+    transition: background-color 0.3s;
+    width: 100%;
+
+    @media (--tablet-max) {
+      border-top: 1px solid var(--grayLight);
+
+      &:hover,
+      &:focus {
+        background-color: var(--offWhite);
+      }
+    }
+  }
+
+  & [data-nav-item='action'] > a {
+    color: var(--bodyText);
+    font-size: 18px;
+    font-weight: var(--semiBold);
+    line-height: 1.2em;
+    letter-spacing: 0.03em;
+    padding: 10px 20px;
+    position: relative;
+    text-decoration: none;
+    width: 100%;
+
+    &[href]:hover,
+    &[href]:focus {
+      color: var(--headerLinkHoverOffWhite);
+    }
+  }
+
+  & [data-nav-item='action'] > button {
+    color: var(--bodyText);
+    flex: none;
+    height: 30px;
+    margin-left: 5px;
+    margin-right: 10px;
+    width: 30px;
+    transition: color 0.3s;
+
+    & svg {
+      fill: currentColor;
+      height: 100%;
+      width: 100%;
+      transform: rotate(90deg);
+      transition: all 0.3s;
+    }
+
+    &:hover svg,
+    &:focus svg {
+      fill: var(--headerLinkHoverOffWhite);
+    }
+
+    &[aria-expanded='true'] svg {
+      transform: rotate(270deg);
+    }
+  }
+
+  & [data-nav-item='dropdown'] {
+    background-color: var(--offWhite);
+    display: none;
+    max-height: 0;
+    opacity: 0;
+    overflow: hidden;
+    transition: max-height 0.3s, opacity 0.3s;
+
+    &[aria-hidden='false'] {
+      max-height: 1000vh;
+      opacity: 1;
+      overflow-y: auto;
+    }
+  }
+
+  & [data-nav-item='dropdown'] a {
+    display: block;
+    color: var(--bodyText);
+    font-size: 14px;
+    font-weight: var(--bold);
+    line-height: 1.3em;
+    margin: 2px;
+    padding: 10px 20px;
+    text-decoration: none;
+    transition: background-color 0.3s, color 0.3s;
+    width: calc(100% - 4px);
+
+    &[href]:hover,
+    &[href]:focus {
+      color: var(--umdLinkOffWhite);
+    }
+  }
+}
+
+header nav {
+  @media (--tablet-max) {
+    background-color: var(--white);
+    box-shadow: 0 0 3px 0 var(--shadow);
+    display: none;
+    flex-direction: column;
+    height: 100vh;
+    overflow-y: auto;
+    position: absolute;
+    top: 0;
+    right: 0;
+    transform: translateX(100%);
+    transition: transform 0.3s ease-in-out;
+    width: calc(100% - 44px);
+    max-width: 400px;
+
+    &[data-open] {
+      transform: translateX(0);
+    }
+
+    &[data-close] {
+      transform: translateX(100%);
+    }
+  }
+
+  @media (--desktop-min) {
+    align-items: center;
+    display: flex;
+    height: 100%;
+    justify-content: flex-end;
+    margin-left: auto;
+    margin-right: -5px;
+    padding: 10px 0;
+    position: relative;
+
+    & button.close-menu {
+      display: none;
+    }
+
+    & [data-nav-item='action'] > a {
+      padding: 5px;
+      margin-left: 10px;
+      max-width: 160px;
+    }
+
+    & [data-nav-item='action'] > button {
+      height: 30px;
+      margin: 0;
+      width: 30px;
+    }
+
+    & [data-nav-item='dropdown'] {
+      box-shadow: 2px 2px 2px 0 var(--shadowLightest);
+      position: absolute;
+      right: 0;
+      top: calc(100% + 19px);
+      min-width: 220px;
+
+      &[aria-hidden='false'] {
+        max-height: 90vh;
+      }
+    }
+  }
+}

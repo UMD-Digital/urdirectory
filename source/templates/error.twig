@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>
+      Error Page not found
+    </title>
+
+    {% cache globally %}
+    <link rel="icon" type="image/png" href="/favicon.ico" />
+    <link rel="apple-touch-icon" href="/icons/apple-touch-icon.png" />
+    <link rel="manifest" href="/manifest.webmanifest" />
+    {% endcache %}
+  </head>
+  <body>
+    {% include './components/includes/_university-banner.twig' %}
+
+    <main>
+      <umd-lock data-size="medium" id="main">
+        <umd-page-header>
+          <h1 data-page="title" class="large-san-serif">
+            Page not found
+          </h1>
+          <div class="rich-text">
+            <p>
+              The page you were looking for was not found. Verify the the
+              address you were trying to reach or return to the <a href="{{
+                siteUrl
+                }}">
+                homepage
+              </a>.
+            </p>
+          </div>
+          <div data-page="link">
+            <a href="{{ siteUrl }}"
+              class="call-to-action"
+              data-color="red"
+              data-style="solid">
+              <span>Home</span>
+            </a>
+          </div>
+        </umd-page-header>
+      </umd-lock>
+    </main>
+
+    {% include './components/includes/_footer' %}
+
+    {% js '/main.js' %}
+    {% css '/main.css' %}
+  </body>
+</html>

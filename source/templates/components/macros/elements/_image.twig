@@ -1,0 +1,33 @@
+{% macro Figure(image, caption, style) %}
+  {% if image %}
+    {% set attributes = {
+      alt: image.genericPlainText ?? image.title,
+      src: image.url
+    } %}
+
+    <figure {{ style ? "data-theme=#{style}" : '' }}>
+      <img {{ attr(attributes) }} />
+
+      {% if caption %}
+        <figcaption>
+          {{ caption }}
+        </figcaption>
+      {% endif %}
+    </figure>
+  {% endif %}
+{% endmacro %}
+
+{% macro Single(block, style) %}
+  {% set image = block.assetsImagesSingle.one() %}
+  {% set attributes = {
+    data: {
+      alignment: block.alignment ?? null,
+      image: 'with-caption',
+      width: block.width ?? null
+    }
+  } %}
+
+  <div {{ attr(attributes) }}>
+    {{ _self.Figure(image, block.caption, style) }}
+  </div>
+{% endmacro %}

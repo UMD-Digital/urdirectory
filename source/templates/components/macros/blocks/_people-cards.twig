@@ -1,0 +1,163 @@
+{% macro ProfileLink(person) %}
+  {% set personLinkAttributes = {
+    href: person.url,
+    class: 'call-to-action',
+    data: {
+      color: 'red',
+      style: 'underlined'
+    }
+  } %}
+
+  <a {{ attr(personLinkAttributes) }}>
+    <span data-link="text" aria-hidden="true">View Profile</span>
+    <span class="sr-only">View {{ person.title }}'s profile</span>
+  </a>
+{% endmacro %}
+
+{% macro ContactList(contacts) %}
+  {% import './components/helpers/_phone-link' as PhoneHelper %}
+  {% import './components/helpers/_email-link.twig' as EmailHelper %}
+  {% import './components/macros/elements/_links' as LinksElement %}
+  {% import './components/macros/blocks/_contact.twig' as Contact %}
+
+  <ul data-person="contact">
+    {% for contact in contacts %}
+      <li>
+        {% if contact.type == 'phone' %}
+          {% if contact.genericPhone %}
+            <span aria-hidden="true" data-icon="phone">
+              {% include './components/icons/_phone.twig' %}
+            </span>
+            {{ PhoneHelper.Link(contact.genericPhone, contact.genericInteger) }}
+          {% endif %}
+        {% endif %}
+
+        {% if contact.type == 'email' %}
+          {% if contact.genericEmail %}
+            <span aria-hidden="true" data-icon="envelope">
+              {% include './components/icons/_envelope.twig' %}
+            </span>
+            {{ EmailHelper.Link(contact.genericEmail) }}
+          {% endif %}
+        {% endif %}
+
+        {% if contact.type == 'website' %}
+          {% set link = contact.entriesLinksSingle.one() ?? null %}
+
+          {% if link %}
+            <span aria-hidden="true" data-icon="globe">
+              {% include './components/icons/_earth.twig' %}
+            </span>
+            {{ LinksElement.Link(link) }}
+          {% endif %}
+        {% endif %}
+
+        {% if contact.type == 'address' %}
+          {% set address = contact.genericAddress.one() ?? null %}
+
+          {% if address %}
+            <span aria-hidden="true" data-icon="location">
+              {% include './components/icons/_location.twig' %}
+            </span>
+            {{ Contact.Address(address) }}
+          {% endif %}
+        {% endif %}
+      </li>
+    {% endfor %}
+  </ul>
+{% endmacro %}
+
+{% macro ContactWebsites(contacts) %}
+  {% import './components/macros/elements/_links' as LinksElement %}
+  {% set sitesInContacts = false %}
+
+  {% for contact in contacts %}
+    {% if contact.type == 'website' %}
+      {% set sitesInContacts = true %}
+    {% endif %}
+  {% endfor %}
+
+  {% if sitesInContacts %}
+    <ul data-person="contact-links-only">
+      {% for contact in contacts %}
+        {% if contact.type == 'website' %}
+          {% set link = contact.entriesLinksSingle.one() ?? null %}
+
+          {% if link %}
+            <li>{{ LinksElement.link(link) }}</li>
+          {% endif %}
+        {% endif %}
+      {% endfor %}
+    </ul>
+  {% endif %}
+{% endmacro %}
+
+{% macro Card(person, cardType) %}
+  {% import './components/helpers/_image-url' as ImageHelper %}
+
+  {% set imageUrl =
+    ImageHelper.Path(
+      person.assetsImagesFeatured.one(),
+      '/static/default/person.svg'
+    )
+  %}
+  {% set name = person.title %}
+  {% set jobTitle = person.genericHeading %}
+  {% set pronouns = person.genericPlainText %}
+  {% set contacts = person.componentContact.level(1).all() ?? null %}
+
+  <umd-person-card data-type="{{ cardType }}">
+    <person-card-image>
+      <img src="{{ imageUrl }}" alt="{{ person.title }}" />
+    </person-card-image>
+    <person-card-content>
+      <div data-person="name">
+        <p class="small-san-serif">
+          <a href="{{ person.url }}">{{ person.title }}</a>
+        </p>
+
+        {% if jobTitle %}
+          <p data-person="title">
+            {{ jobTitle }}
+          </p>
+        {% endif %}
+      </div>
+
+      {% if cardType == 'standard' %}
+        {% if pronouns %}
+          <p data-person="details">
+            Pronouns: <span>{{ pronouns }}</span>
+          </p>
+        {% endif %}
+
+        {% if contacts %}
+          {{ _self.ContactList(contacts, cardType) }}
+        {% endif %}
+      {% endif %}
+
+      {% if cardType == 'linksOnly' and contacts %}
+        {{ _self.ContactWebsites(contacts) }}
+      {% endif %}
+    </person-card-content>
+
+    <person-card-link>
+      {{ _self.ProfileLink(person) }}
+    </person-card-link>
+  </umd-person-card>
+{% endmacro %}
+
+{% macro Block(block) %}
+  {% set attributes = {
+    data: {
+      grid: 'person',
+      'grid-col': 3,
+      alignment: block.optionAlignment ?? null
+    }
+  } %}
+
+  <div {{ attr(attributes) }}>
+    {% for person in block.entriesPeopleMultiple.all() %}
+      {{ _self.Card(person, block.optionCardType) }}
+    {% endfor %}
+  </div>
+{% endmacro %}

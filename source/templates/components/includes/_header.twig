@@ -1,0 +1,114 @@
+{% set navBiography = mainNavigation.navItemBiography.one() ?? null %}
+{% set navAdministration = mainNavigation.navItemAdministration.one() ?? null %}
+{% set navCommunications = mainNavigation.navItemCommunications.one() ?? null %}
+{% set navContact = mainNavigation.navItemContact.one() ?? null %}
+{% set navFeedback = mainNavigation.navItemFeedback.one() ?? null %}
+{% set logo = mainNavigation.assetsImagesSingle.one() ?? null %}
+
+{% import './components/macros/elements/_links' as LinksElement %}
+
+{% macro logoOrTitle(logo) %}
+  {% set attributes = {
+    id: 'site-title',
+    class: ''
+  } %}
+  <a id="site-title" class="medium-san-serif" href="{{ siteUrl }}">
+    {% if logo %}
+      <img src="{{ logo.url }}" alt="{{ logo.genericPlainText }}" />
+    {% endif %}
+
+    {% if not logo %}
+      {{ siteName }}
+    {% endif %}
+  </a>
+{% endmacro %}
+
+{% macro NavLinks(nav) %}
+  {% set navId = nav.title|lower|id %}
+
+  <umd-nav-item>
+    <div data-nav-item="action">
+      {% if not nav.link %}
+        <a disabled>{{ nav.title }}</a>
+      {% endif %}
+
+      {% if nav.link %}
+        {{ LinksElement.OverrideText(nav.link, nav.title) }}
+      {% endif %}
+
+      {% if (nav.dropdown|length) > 0 %}
+        <button aria-controls="{{ navId }}-link"
+          aria-expanded="false"
+          aria-label="List of items for {{ nav.title }}">
+          {% include './components/icons/_arrow-right-minimal.twig' %}
+        </button>
+      {% endif %}
+    </div>
+
+    {% if (nav.dropdown|length) > 0 %}
+      <div data-nav-item="dropdown" id="{{ navId }}-link" aria-hidden="true">
+        {% for link in nav.dropdown %}
+          {{ LinksElement.Link(link) }}
+        {% endfor %}
+      </div>
+    {% endif %}
+  </umd-nav-item>
+{% endmacro %}
+
+<header aria-label="header">
+  <umd-lock data-size="large">
+    {{ _self.logoOrTitle(logo) }}
+
+    <button class="main-menu"
+      aria-expanded="false"
+      aria-controls="main-menu"
+      aria-label="Main Menu">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+
+    <nav id="main-menu" aria-label="Main Navigation">
+      <button class="close-menu" aria-label="Close the menu">
+        {% include '/components/icons/_x.twig' %}
+      </button>
+
+      {{
+        _self.NavLinks({
+          link: navBiography.entriesLinksSingle.one() ?? null,
+          title: navBiography.genericTitle ?? 'Biography',
+          dropdown: navBiography.entriesLinksMultiple.all() ?? null
+        })
+      }}
+      {{
+        _self.NavLinks({
+          link: navAdministration.entriesLinksSingle.one() ?? null,
+          title: navAdministration.genericTitle ?? 'Administration',
+          dropdown: navAdministration.entriesLinksMultiple.all() ?? null
+        })
+      }}
+      {{
+        _self.NavLinks({
+          link: navCommunications.entriesLinksSingle.one() ?? null,
+          title: navCommunications.genericTitle ?? 'Communications',
+          dropdown: navCommunications.entriesLinksMultiple.all() ?? null
+        })
+      }}
+      {{
+        _self.NavLinks({
+          link: navContact.entriesLinksSingle.one() ?? null,
+          title: navContact.genericTitle ?? 'Contact',
+          dropdown: navContact.entriesLinksMultiple.all() ?? null
+        })
+      }}
+      {{
+        _self.NavLinks({
+          link: navFeedback.entriesLinksSingle.one() ?? null,
+          title: navFeedback.genericTitle ?? 'Feedback',
+          dropdown: navFeedback.entriesLinksMultiple.all() ?? null
+        })
+      }}
+    </nav>
+  </umd-lock>
+</header>
+<div class="body-overlay"></div>

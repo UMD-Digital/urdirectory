@@ -1,0 +1,70 @@
+@import url('https://fonts.googleapis.com/css2?family=Crimson+Text:ital,wght@0,400;0,600;0,700;1,400;1,600;1,700&family=Roboto+Condensed:ital,wght@0,400;0,700;1,400;1,700&family=Source+Sans+Pro:ital,wght@0,400;0,600;0,700;1,400;1,600;1,700&display=swap');
+
+/* prettier-ignore */
+:root {
+  --roboto:         'Roboto Condensed', 'Roboto', 'Source Sans Pro', Helvetica, Arial, sans-serif;
+  --sansSerif:      'Source Sans Pro', Helvetica, Arial, Verdana, sans-serif;
+  --serif:          'Crimson Text', Georgia, serif;
+
+  /* core */
+
+  --black:          #000000;
+  --red:            #e21833;
+  --white:          #ffffff;
+  --gold:           #ffd200;
+
+  /* core-alt */
+
+  --redLight:       #f6bac2;
+  --redDark:        #710c1a;
+  --goldLight:      #fff6cc;
+  --goldDark:       #997e00;
+
+  /* Grays/Greys */
+
+  --offBlack:       #222222;
+  --darkThemeAlt:   #181818;
+  --grayDark:       #454545;
+  --gray:           #7f7f7f;
+  --grayLight:      #e6e6e6;
+  --offWhite:       #f1f1f1;
+
+  /* Alternatives */
+
+  --blue:           #006bbd;
+  --green:          #218739;
+
+  /* Tints */
+
+  --tintDark:     rgba(255, 255, 255, 0.8);
+  --tint:         rgba(255, 255, 255, 0.6);
+  --tintLight:    rgba(255, 255, 255, 0.4);
+  --tintLightest: rgba(255, 255, 255, 0.2);
+
+  /* Box Shadows */
+
+  --shadowDark:     rgba(0, 0, 0, 0.8);
+  --shadow:         rgba(0, 0, 0, 0.6);
+  --shadowLight:    rgba(0, 0, 0, 0.4);
+  --shadowLightest: rgba(0, 0, 0, 0.2);
+
+
+  /* Color Shadows */
+
+  --shadowRed:      rgba(226, 24, 51, 0.9);
+  --shadowGold:     rgba(255, 210, 0, 0.9);
+
+  /* font weights */
+
+  --normal:         400;
+  --semiBold:       600;
+  --bold:           700;
+
+  /* named */
+
+  --bodyText:       var(--grayDark);
+  --umdLink:        var(--red);
+  --umdLinkHover:   var(--redDark);
+  --umdBoxShadow:   var(--shadow);
+  --umdLinkOffWhite:   #d91731;
+}

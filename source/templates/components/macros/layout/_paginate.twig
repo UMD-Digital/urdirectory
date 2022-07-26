@@ -1,0 +1,109 @@
+{% macro Block(info) %}
+  {% if info.totalPages > 1 %}
+    <umd-paginate>
+      <span class="sr-only">Current Page is {{ info.currentPage }}</span>
+
+      {% if info.prevUrl %}
+        <a href="{{ info.prevUrl }}" data-controls="previous" rel="prev">
+          <span aria-hidden="true" data-icon="chevron">
+            {% include './components/icons/_arrow-right-minimal.twig' %}
+          </span>
+          <span aria-hidden="true">Previous</span>
+          <span class="sr-only">Back to the previous page</span>
+        </a>
+      {% endif %}
+
+      {% if not info.prevUrl %}
+        <p data-controls="previous" aria-hidden="true">
+          <span aria-hidden="true" data-icon="chevron">
+            {% include './components/icons/_arrow-right-minimal.twig' %}
+          </span>
+          <span aria-hidden="true">Previous</span>
+          <span class="sr-only">No more Pages</span>
+        </p>
+      {% endif %}
+
+      <page-list>
+        {% if info.getPrevUrls(3) > 0 %}
+          {% for page, url in info.getPrevUrls(3) %}
+            <a href="{{ url }}"
+              data-paginate="previous"
+              aria-label="view page {{ page }} of {{ info.totalPages }}">
+              {{ page }}
+            </a>
+          {% endfor %}
+        {% endif %}
+
+        <p data-current="page"
+          aria-label="Current page, {{ info.currentPage }}">
+          {{ info.currentPage }}
+        </p>
+
+        <p data-current="of-total">
+          of {{ info.totalPages }}
+        </p>
+
+        {% if info.getNextUrls(3) > 0 %}
+          {% for page, url in info.getNextUrls(3) %}
+            <a href="{{ url }}"
+              data-paginate="next"
+              aria-label="view page {{ page }} of {{ info.totalPages }}">
+              {{ page }}
+            </a>
+          {% endfor %}
+        {% endif %}
+      </page-list>
+
+      {% if not info.nextUrl %}
+        <p data-controls="next" aria-hidden="true">
+          <span aria-hidden="true">Next</span>
+          <span class="sr-only">No more pages</span>
+          <span aria-hidden="true" data-icon="chevron">
+            {% include './components/icons/_arrow-right-minimal.twig' %}
+          </span>
+        </p>
+      {% endif %}
+
+      {% if info.nextUrl %}
+        <a href="{{ info.nextUrl }}" data-controls="next" rel="next">
+          <span aria-hidden="true">Next</span>
+          <span class="sr-only">Forward to the next page</span>
+          <span aria-hidden="true" data-icon="chevron">
+            {% include './components/icons/_arrow-right-minimal.twig' %}
+          </span>
+        </a>
+      {% endif %}
+    </umd-paginate>
+  {% endif %}
+{% endmacro %}
+
+{% macro Results(info, infoType, infoTypePural) %}
+  {% set total = info.total %}
+  {% set currentPage = info.currentPage %}
+  {% set totalPages = info.totalPages %}
+  {% set isSingleResult = total == 1 %}
+  {% set resultType = infoType ?? 'entry' %}
+  {% set resultTypePural = infoTypePural ?? 'entries' %}
+
+  {% set attributes = {
+    aria: {
+      atomic: 'true',
+      live: 'assertive'
+    },
+    class: 'extra-small-san-serif',
+    data: {
+      page: 'feed-count'
+    }
+  } %}
+
+  <p {{ attr(attributes) }}>
+    {% if isSingleResult %}
+      1 {{ resultType }} found.
+    {% endif %}
+
+    {% if not isSingleResult %}
+      {{ total }} {{ resultTypePural }} found. Displaying page {{ currentPage }}
+      of {{ totalPages }}
+    {% endif %}
+  </p>
+{% endmacro %}
