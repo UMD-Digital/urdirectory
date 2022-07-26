@@ -29,24 +29,31 @@ fieldLayouts:
             uid: 392ba5ea-479a-4155-a572-981e45604939
             userCondition: null
             warning: null
-            width: 50
+            width: 100
           -
             elementCondition: null
-            fieldUid: d1fe7761-d948-41f4-8400-3fabbe53501c # Leadership
+            fieldUid: 5a18cbd4-110b-40c0-8f03-458cd61a1393 # First Name
             instructions: null
             label: null
             required: false
             tip: null
             type: craft\fieldlayoutelements\CustomField
-            uid: 1db1a6a4-e0d4-48b4-a207-991cbef66700
+            uid: 2d3ece5b-7eba-4647-9bd7-1548274c9ed2
             userCondition: null
             warning: null
-            width: 25
+            width: 50
           -
             elementCondition: null
-            type: craft\fieldlayoutelements\HorizontalRule
-            uid: 2213f8cd-ccb6-40ce-badb-205949cbfda3
+            fieldUid: dfe4ba04-8dd6-40a3-a1dc-504f24635aae # Last Name
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 9de42fd4-4d86-4290-8cc3-91a7c30c2f10
             userCondition: null
+            warning: null
+            width: 50
           -
             elementCondition: null
             fieldUid: f0362c79-d0f0-4117-9cda-ff55e0c50a97 # Profile Image
@@ -61,6 +68,11 @@ fieldLayouts:
             width: 100
           -
             elementCondition: null
+            type: craft\fieldlayoutelements\HorizontalRule
+            uid: 2213f8cd-ccb6-40ce-badb-205949cbfda3
+            userCondition: null
+          -
+            elementCondition: null
             fieldUid: 7d39b47a-b0da-4878-a45f-568644477e71 # Department
             instructions: null
             label: null
@@ -70,7 +82,19 @@ fieldLayouts:
             uid: eba53ab6-c3c2-4860-a5b1-721435e35887
             userCondition: null
             warning: null
-            width: 100
+            width: 50
+          -
+            elementCondition: null
+            fieldUid: d1fe7761-d948-41f4-8400-3fabbe53501c # Leadership
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 1db1a6a4-e0d4-48b4-a207-991cbef66700
+            userCondition: null
+            warning: null
+            width: 25
           -
             elementCondition: null
             type: craft\fieldlayoutelements\HorizontalRule
@@ -120,7 +144,7 @@ fieldLayouts:
           -
             elementCondition: null
             fieldUid: 433a13e8-c868-4aad-a175-6de98725d1ee # Contact Phone
-            instructions: "Use dashes _(\"-\")_ to delineate portions of a phone number for accessibility with screen readers. **Do not** user periods _(\".\")_.  \r\n❌ ~~`301.405.4680`~~ _Fails Accessibility screening_.  \r\n✅ `301-405-4680`\__Passes Accessibility screening_.  "
+            instructions: "Use dashes _(\"-\")_ to delineate portions of a phone number for accessibility with screen readers. **Do not** user periods _(\".\")_, spaces, or other characters.  \r\n❌ ~~`301.405.4680`~~ _Fails Accessibility screening_.  \r\n✅ `301-405-4680`\__Passes Accessibility screening_.  "
             label: null
             required: false
             tip: null
@@ -150,10 +174,10 @@ fieldLayouts:
         uid: ff9e5095-ce09-4c49-8f21-31bc8b0244d1
         userCondition: null
 handle: person
-hasTitleField: true
+hasTitleField: false
 name: Person
 section: e62abf0b-5f0f-4e1f-bbfd-4bd1480e192f # People
 sortOrder: 1
-titleFormat: null
+titleFormat: '{ lastName ? lastName ~ ", " : "" }{ firstName ? firstName : "" }'
 titleTranslationKeyFormat: null
 titleTranslationMethod: site

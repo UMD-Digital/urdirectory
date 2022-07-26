@@ -3,7 +3,7 @@ contentColumnType: text
 fieldGroup: 82c2f2b8-a744-4155-aa61-43f9f1c1eb5d # Common
 handle: firstName
 instructions: null
-name: 'Name First'
+name: 'First Name'
 searchable: false
 settings:
   byteLimit: null
