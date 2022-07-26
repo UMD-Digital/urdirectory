@@ -19,6 +19,7 @@ remote.exec(
 );
 
 remote.copy('craft/craft', `${target.destination}/craft`);
+remote.copy('craft/bootstrap.php', `${target.destination}/craft`);
 remote.copy('craft/config', `${target.destination}/craft`, ['.DS_Store']);
 remote.copy('craft/modules', `${target.destination}/craft`, '.DS_Store');
 remote.copy('craft/vendor', `${target.destination}/craft`, '.DS_Store');

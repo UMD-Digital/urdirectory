@@ -1,7 +1,7 @@
 addresses:
   fieldLayouts:
     ef81dafd-7c45-4eae-802e-cf3e5737919d: null
-dateModified: 1658861134
+dateModified: 1658864819
 elementSources:
   craft\elements\Entry:
     -
@@ -44,6 +44,7 @@ meta:
   __names__:
     4a79d8da-92f6-4812-831c-1f6cd9e45df6: Images # Images
     5a18cbd4-110b-40c0-8f03-458cd61a1393: 'Name First' # Name First
+    6cf454f3-34d2-4e38-9d6a-17b0a26800bc: 'Public Schema' # Public Schema
     7d39b47a-b0da-4878-a45f-568644477e71: Department # Department
     9ccff731-9c55-4c1e-bf91-b7455841c132: Pronouns # Pronouns
     57b96333-4e19-468a-bd21-72a812ddbeb7: Person # Person
@@ -51,6 +52,7 @@ meta:
     95eb654d-2231-4f49-b0c5-2a1c9c1eebe9: 'Job Title' # Job Title
     433a13e8-c868-4aad-a175-6de98725d1ee: 'Contact Phone' # Contact Phone
     3270d53d-69b9-4362-acad-bc55e4052541: 'UR Team' # UR Team
+    7068003f-9a43-42dd-be10-36e55f8a9772: Directory # Directory
     b8499164-494d-4b6f-b073-5185d851c895: 'Departments, Offices, Units' # Departments, Offices, Units
     c0431233-367b-4a2a-b6e6-8dedfcc7b5d9: 'OMC Team' # OMC Team
     d1fe7761-d948-41f4-8400-3fabbe53501c: Leadership # Leadership
