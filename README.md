@@ -10,7 +10,7 @@ Staging: n/a
 
 ```bash
 cd [desired_local_directory]
-git clone git@github.com:UMD-Digital/ur-directory.git
+git clone git@github.com:UMD-Digital/urdirectory.git
 cd president
 ```
 
@@ -116,10 +116,10 @@ _In addition to the variables set in `.env` during the setup process, the follow
 
 ```bash
 BASE_ASSET_PATH=""
-DEFAULT_SITE_URL=""
+PRIMARY_SITE_URL=""
 WEBROOT=""
 ```
 
 - **BASE_ASSET_PATH:** _Full system path to the directory where assets are stored (ie: /Users/[username]/umd-temp-craft/source/assets/uploads)._
-- **DEFAULT_SITE_URL:** _Domain set by local environment for accessing the site in browser._
+- **PRIMARY_SITE_URL:** _Domain set by local environment for accessing the site in browser._
 - **WEBROOT:** _Full system path to the `/craft/web` directory of the project (ie: /Users/[username]/umd-temp-craft/craft/web)._

@@ -5,7 +5,7 @@
     "staging": {
       "user": "ec2-user",
       "host": "3.131.127.17",
-      "destination": "/srv/http/ur-directory"
+      "destination": "/srv/http/urdirectory"
     }
   }
 }
