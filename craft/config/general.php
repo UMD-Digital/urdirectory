@@ -25,6 +25,7 @@ return [
   'allowUpdates' => $isDev,
   'allowAdminChanges' => $isDev,
   'disallowRobots' => !$isProd,
+  'allowedGraphqlOrigins' => null,
   'aliases' => [
     '@baseAssetPath' => getenv('BASE_ASSET_PATH'),
     '@siteUrl' => getenv('PRIMARY_SITE_URL'),
