@@ -1,7 +1,7 @@
 addresses:
   fieldLayouts:
     ef81dafd-7c45-4eae-802e-cf3e5737919d: null
-dateModified: 1658870076
+dateModified: 1659541630
 elementSources:
   craft\elements\Entry:
     -
@@ -39,7 +39,7 @@ fs:
     settings:
       path: '@baseAssetPath/uploads/images'
     type: craft\fs\Local
-    url: /uploads/images
+    url: '@siteUrl/uploads/images'
 meta:
   __names__:
     4a79d8da-92f6-4812-831c-1f6cd9e45df6: Images # Images
