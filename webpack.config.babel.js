@@ -74,7 +74,6 @@ module.exports = env => {
     new WebpackShellPlugin({
       onBuildEnd: {
         scripts: [
-          'cp -R source/assets/uploads craft/web',
           'rm -rf craft/web/cpresources',
           'mkdir craft/web/cpresources',
           'chmod -R 777 craft/web/cpresources',
