@@ -1,18 +1,26 @@
 addresses:
   fieldLayouts:
     ef81dafd-7c45-4eae-802e-cf3e5737919d: null
-dateModified: 1663027225
+dateModified: 1663027672
 elementSources:
+  craft\elements\Category:
+    -
+      disabled: false
+      key: 'group:b8499164-494d-4b6f-b073-5185d851c895' # Departments, Offices, Units
+      tableAttributes:
+        - 'field:89abc2ac-b739-4f70-aef9-6e9980955235' # Legacy Category ID
+      type: native
   craft\elements\Entry:
     -
       disabled: false
       key: '*'
       tableAttributes:
         - section
-        - postDate
-        - expiryDate
-        - author
-        - link
+        - dateUpdated
+        - revisionCreator
+        - drafts
+        - 'field:f0362c79-d0f0-4117-9cda-ff55e0c50a97' # Profile Image
+        - 'field:7d39b47a-b0da-4878-a45f-568644477e71' # Department
       type: native
     -
       disabled: false
@@ -27,6 +35,7 @@ elementSources:
         - 'field:433a13e8-c868-4aad-a175-6de98725d1ee' # Contact Phone
         - dateUpdated
         - revisionCreator
+        - drafts
       type: native
 email:
   fromEmail: digital@umd.edu
@@ -49,7 +58,7 @@ meta:
     9ccff731-9c55-4c1e-bf91-b7455841c132: Pronouns # Pronouns
     57b96333-4e19-468a-bd21-72a812ddbeb7: Person # Person
     82c2f2b8-a744-4155-aa61-43f9f1c1eb5d: Common # Common
-    89abc2ac-b739-4f70-aef9-6e9980955235: 'legacy Category ID' # legacy Category ID
+    89abc2ac-b739-4f70-aef9-6e9980955235: 'Legacy Category ID' # Legacy Category ID
     95eb654d-2231-4f49-b0c5-2a1c9c1eebe9: 'Job Title' # Job Title
     433a13e8-c868-4aad-a175-6de98725d1ee: 'Contact Phone' # Contact Phone
     3270d53d-69b9-4362-acad-bc55e4052541: 'UR Team' # UR Team
