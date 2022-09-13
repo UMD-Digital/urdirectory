@@ -1,0 +1,20 @@
+columnSuffix: erwlmryk
+contentColumnType: smallint(2)
+fieldGroup: 82c2f2b8-a744-4155-aa61-43f9f1c1eb5d # Common
+handle: legacyCategoryId
+instructions: null
+name: 'legacy Category ID'
+searchable: false
+settings:
+  decimals: 0
+  defaultValue: null
+  max: 99
+  min: 0
+  prefix: null
+  previewCurrency: null
+  previewFormat: none
+  size: null
+  suffix: null
+translationKeyFormat: null
+translationMethod: none
+type: craft\fields\Number
