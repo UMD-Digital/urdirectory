@@ -1,7 +1,7 @@
 addresses:
   fieldLayouts:
     ef81dafd-7c45-4eae-802e-cf3e5737919d: null
-dateModified: 1663037589
+dateModified: 1663038439
 elementSources:
   craft\elements\Category:
     -
@@ -52,6 +52,7 @@ fs:
 meta:
   __names__:
     4a79d8da-92f6-4812-831c-1f6cd9e45df6: Images # Images
+    4c6823dd-d7ae-4a66-9126-5feabbcfa6a6: 'Vice President' # Vice President
     5a18cbd4-110b-40c0-8f03-458cd61a1393: 'First Name' # First Name
     6cf454f3-34d2-4e38-9d6a-17b0a26800bc: 'Public Schema' # Public Schema
     7d39b47a-b0da-4878-a45f-568644477e71: Department # Department

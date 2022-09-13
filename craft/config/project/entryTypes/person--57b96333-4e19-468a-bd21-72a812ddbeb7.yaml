@@ -68,38 +68,22 @@ fieldLayouts:
             width: 100
           -
             elementCondition: null
-            type: craft\fieldlayoutelements\HorizontalRule
-            uid: 2213f8cd-ccb6-40ce-badb-205949cbfda3
+            heading: Details
+            type: craft\fieldlayoutelements\Heading
+            uid: dddef1da-05be-4f18-9242-3e86b402bebe
             userCondition: null
           -
             elementCondition: null
             fieldUid: 7d39b47a-b0da-4878-a45f-568644477e71 # Department
             instructions: null
-            label: null
+            label: 'Departments, Offices, or Teams'
             required: false
             tip: null
             type: craft\fieldlayoutelements\CustomField
             uid: eba53ab6-c3c2-4860-a5b1-721435e35887
             userCondition: null
             warning: null
-            width: 50
-          -
-            elementCondition: null
-            fieldUid: d1fe7761-d948-41f4-8400-3fabbe53501c # Leadership
-            instructions: null
-            label: null
-            required: false
-            tip: null
-            type: craft\fieldlayoutelements\CustomField
-            uid: 1db1a6a4-e0d4-48b4-a207-991cbef66700
-            userCondition: null
-            warning: null
-            width: 25
-          -
-            elementCondition: null
-            type: craft\fieldlayoutelements\HorizontalRule
-            uid: e2e7877f-7567-4c7e-8870-6ef0d14427cf
-            userCondition: null
+            width: 100
           -
             elementCondition: null
             fieldUid: 95eb654d-2231-4f49-b0c5-2a1c9c1eebe9 # Job Title
@@ -126,14 +110,15 @@ fieldLayouts:
             width: 100
           -
             elementCondition: null
-            type: craft\fieldlayoutelements\HorizontalRule
-            uid: c6106de4-d58b-4867-9183-137ca46632f3
+            heading: Contact
+            type: craft\fieldlayoutelements\Heading
+            uid: dac5f33d-d101-4209-9b5c-cd582eb984c2
             userCondition: null
           -
             elementCondition: null
             fieldUid: f9c6c299-6015-4673-8929-99f531e499cd # Contact Email
             instructions: null
-            label: null
+            label: Email
             required: false
             tip: null
             type: craft\fieldlayoutelements\CustomField
@@ -145,7 +130,7 @@ fieldLayouts:
             elementCondition: null
             fieldUid: 433a13e8-c868-4aad-a175-6de98725d1ee # Contact Phone
             instructions: "Use dashes _(\"-\")_ to delineate portions of a phone number for accessibility with screen readers. **Do not** user periods _(\".\")_, spaces, or other characters.  \r\n❌ ~~`301.405.4680`~~ _Fails Accessibility screening_.  \r\n✅ `301-405-4680`\__Passes Accessibility screening_.  "
-            label: null
+            label: Phone
             required: false
             tip: null
             type: craft\fieldlayoutelements\CustomField
@@ -155,14 +140,15 @@ fieldLayouts:
             width: 100
           -
             elementCondition: null
-            type: craft\fieldlayoutelements\HorizontalRule
-            uid: edbb6a21-b66c-4212-acfe-90020b0fc4bf
+            heading: About
+            type: craft\fieldlayoutelements\Heading
+            uid: 55934a7e-43e1-4723-ab38-1000659e65ed
             userCondition: null
           -
             elementCondition: null
             fieldUid: e4d64cf3-ac5c-455d-a2a1-10950876b358 # About
             instructions: null
-            label: null
+            label: Bio
             required: false
             tip: null
             type: craft\fieldlayoutelements\CustomField
@@ -172,6 +158,36 @@ fieldLayouts:
             width: 100
         name: Content
         uid: ff9e5095-ce09-4c49-8f21-31bc8b0244d1
+        userCondition: null
+      -
+        elementCondition: null
+        elements:
+          -
+            elementCondition: null
+            fieldUid: d1fe7761-d948-41f4-8400-3fabbe53501c # Leadership
+            instructions: null
+            label: 'Is Leadership'
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 1db1a6a4-e0d4-48b4-a207-991cbef66700
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            elementCondition: null
+            fieldUid: 4c6823dd-d7ae-4a66-9126-5feabbcfa6a6 # Vice President
+            instructions: null
+            label: 'Is Vice President'
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: c2b112e5-9eb4-48e0-9bb2-8ee7c65d6d37
+            userCondition: null
+            warning: null
+            width: 100
+        name: Leadership
+        uid: 722ba534-11f9-4276-bb20-48917566688d
         userCondition: null
 handle: person
 hasTitleField: false
