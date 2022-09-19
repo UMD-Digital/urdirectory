@@ -98,18 +98,6 @@ fieldLayouts:
             width: 100
           -
             elementCondition: null
-            fieldUid: 9ccff731-9c55-4c1e-bf91-b7455841c132 # Pronouns
-            instructions: null
-            label: null
-            required: false
-            tip: null
-            type: craft\fieldlayoutelements\CustomField
-            uid: 00b8da5e-6e74-4343-9ed0-914ad1fe1468
-            userCondition: null
-            warning: null
-            width: 100
-          -
-            elementCondition: null
             heading: Contact
             type: craft\fieldlayoutelements\Heading
             uid: dac5f33d-d101-4209-9b5c-cd582eb984c2
@@ -135,24 +123,6 @@ fieldLayouts:
             tip: null
             type: craft\fieldlayoutelements\CustomField
             uid: 31d67d04-c404-40b7-a3d5-0197643f2a6f
-            userCondition: null
-            warning: null
-            width: 100
-          -
-            elementCondition: null
-            heading: About
-            type: craft\fieldlayoutelements\Heading
-            uid: 55934a7e-43e1-4723-ab38-1000659e65ed
-            userCondition: null
-          -
-            elementCondition: null
-            fieldUid: e4d64cf3-ac5c-455d-a2a1-10950876b358 # About
-            instructions: null
-            label: Bio
-            required: false
-            tip: null
-            type: craft\fieldlayoutelements\CustomField
-            uid: 7730a51c-ea67-4ba7-8e15-ffcfbdb93923
             userCondition: null
             warning: null
             width: 100
