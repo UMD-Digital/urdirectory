@@ -3,9 +3,36 @@ handle: omcTeam
 name: 'OMC Team'
 permissions:
   - accesscp
+  - 'createentries:e62abf0b-5f0f-4e1f-bbfd-4bd1480e192f' # People
+  - 'createfolders:4a79d8da-92f6-4812-831c-1f6cd9e45df6' # Images
+  - 'deleteassets:4a79d8da-92f6-4812-831c-1f6cd9e45df6' # Images
+  - 'deletecategories:b8499164-494d-4b6f-b073-5185d851c895' # Departments, Offices, Units
+  - 'deleteentries:e62abf0b-5f0f-4e1f-bbfd-4bd1480e192f' # People
+  - 'deletepeerassets:4a79d8da-92f6-4812-831c-1f6cd9e45df6' # Images
+  - 'deletepeercategorydrafts:b8499164-494d-4b6f-b073-5185d851c895' # Departments, Offices, Units
+  - 'deletepeerentries:e62abf0b-5f0f-4e1f-bbfd-4bd1480e192f' # People
+  - 'deletepeerentrydrafts:e62abf0b-5f0f-4e1f-bbfd-4bd1480e192f' # People
+  - 'editimages:4a79d8da-92f6-4812-831c-1f6cd9e45df6' # Images
+  - 'editpeerimages:4a79d8da-92f6-4812-831c-1f6cd9e45df6' # Images
+  - 'replacefiles:4a79d8da-92f6-4812-831c-1f6cd9e45df6' # Images
+  - 'replacepeerfiles:4a79d8da-92f6-4812-831c-1f6cd9e45df6' # Images
+  - 'saveassets:4a79d8da-92f6-4812-831c-1f6cd9e45df6' # Images
+  - 'savecategories:b8499164-494d-4b6f-b073-5185d851c895' # Departments, Offices, Units
+  - 'saveentries:e62abf0b-5f0f-4e1f-bbfd-4bd1480e192f' # People
+  - 'savepeerassets:4a79d8da-92f6-4812-831c-1f6cd9e45df6' # Images
+  - 'savepeercategorydrafts:b8499164-494d-4b6f-b073-5185d851c895' # Departments, Offices, Units
+  - 'savepeerentries:e62abf0b-5f0f-4e1f-bbfd-4bd1480e192f' # People
+  - 'savepeerentrydrafts:e62abf0b-5f0f-4e1f-bbfd-4bd1480e192f' # People
   - 'utility:clear-caches'
   - 'utility:db-backup'
   - 'utility:find-replace'
   - 'utility:php-info'
   - 'utility:system-messages'
   - 'utility:system-report'
+  - 'viewassets:4a79d8da-92f6-4812-831c-1f6cd9e45df6' # Images
+  - 'viewcategories:b8499164-494d-4b6f-b073-5185d851c895' # Departments, Offices, Units
+  - 'viewentries:e62abf0b-5f0f-4e1f-bbfd-4bd1480e192f' # People
+  - 'viewpeerassets:4a79d8da-92f6-4812-831c-1f6cd9e45df6' # Images
+  - 'viewpeercategorydrafts:b8499164-494d-4b6f-b073-5185d851c895' # Departments, Offices, Units
+  - 'viewpeerentries:e62abf0b-5f0f-4e1f-bbfd-4bd1480e192f' # People
+  - 'viewpeerentrydrafts:e62abf0b-5f0f-4e1f-bbfd-4bd1480e192f' # People
