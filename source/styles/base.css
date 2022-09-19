@@ -40,6 +40,15 @@ main {
       margin-bottom: 40px;
       max-width: 300px;
     }
+
+    & [data-page='title'],
+    & .rich-text {
+      margin-bottom: 20px;
+    }
+
+    & [data-page='title'] a {
+      text-decoration: 0;
+    }
   }
 
   & section {

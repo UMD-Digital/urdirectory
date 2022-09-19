@@ -12,22 +12,41 @@
 {% block main %}
   <umd-lock data-size="medium" id="main">
     <umd-page-header>
-      <h1 class="sr-only">
-        {{ siteName }}
-      </h1>
       <div class="rich-text">
         <p>
-          <em>Login to update the University Relations Directory.</em>
+          Content Management System for:
         </p>
       </div>
-      <div data-page="link" data-links-layout="column" data-alignment="center">
-        <a href="/admin"
-          class="call-to-action"
-          data-color="red"
-          data-style="outlined">
-          <span data-link="text">login</span>
+      <h1 data-page="title" class="normal-san-serif">
+        <a href="https://urhome.umd.edu/about/directory/"
+          target="_blank"
+          rel="noopener">
+          The University Relations Directory
         </a>
-      </div>
+      </h1>
+      {% if currentUser %}
+        <div class="rich-text">
+          <p>
+            <em>Access the control panels to make updates</em>
+          </p>
+        </div>
+        <div data-page="link"
+          data-links-layout="column"
+          data-alignment="center">
+          <a href="/admin"
+            class="call-to-action"
+            data-color="red"
+            data-style="outlined">
+            <span data-link="text">Admin</span>
+          </a>
+        </div>
+      {% else %}
+        <div class="rich-text">
+          <p>
+            <em>You must be logged-in to make updates</em>
+          </p>
+        </div>
+      {% endif %}
     </umd-page-header>
   </umd-lock>
 {% endblock %}
