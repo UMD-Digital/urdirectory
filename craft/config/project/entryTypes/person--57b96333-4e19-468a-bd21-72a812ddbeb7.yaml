@@ -75,9 +75,9 @@ fieldLayouts:
           -
             elementCondition: null
             fieldUid: 7d39b47a-b0da-4878-a45f-568644477e71 # Department
-            instructions: null
+            instructions: "Entries must be added to at least one Department to appear on [the Directory of the UR site](https://urhome.umd.edu/about/directory/).\r\n_[Request support from OMC](https://omc.umd.edu/resources/) to update available Departments_"
             label: 'Departments, Offices, or Teams'
-            required: false
+            required: true
             tip: null
             type: craft\fieldlayoutelements\CustomField
             uid: eba53ab6-c3c2-4860-a5b1-721435e35887
@@ -135,7 +135,7 @@ fieldLayouts:
           -
             elementCondition: null
             fieldUid: d1fe7761-d948-41f4-8400-3fabbe53501c # Leadership
-            instructions: null
+            instructions: 'Should this person appear in the list of [AVPs on the leadership page](https://urhome.umd.edu/about/leadership/)?'
             label: 'Is Leadership'
             required: false
             tip: null
@@ -147,7 +147,7 @@ fieldLayouts:
           -
             elementCondition: null
             fieldUid: 4c6823dd-d7ae-4a66-9126-5feabbcfa6a6 # Vice President
-            instructions: null
+            instructions: 'Should this person be bumped to the top of [the list on the directory page](https://urhome.umd.edu/about/directory/)?'
             label: 'Is Vice President'
             required: false
             tip: null
