@@ -1,6 +1,7 @@
 isPublic: false
 name: Directory
 scope:
+  - 'sites.dee54e6d-949e-4492-8579-a6e037806a73:read' # UR Directory
   - 'sections.e62abf0b-5f0f-4e1f-bbfd-4bd1480e192f:read' # People
   - 'entrytypes.57b96333-4e19-468a-bd21-72a812ddbeb7:read' # Person
   - 'volumes.4a79d8da-92f6-4812-831c-1f6cd9e45df6:read' # Images
