@@ -25,7 +25,6 @@ return [
   'allowUpdates' => $isDev,
   'allowAdminChanges' => $isDev,
   'disallowRobots' => !$isProd,
-  'allowedGraphqlOrigins' => ["https://urhome.umd.edu","https://urhome.umd-staging.com","https://urhome.dev.local", "https://127.0.0.1"],
   'aliases' => [
     '@baseAssetPath' => getenv('BASE_ASSET_PATH'),
     '@siteUrl' => getenv('PRIMARY_SITE_URL'),
