@@ -61,5 +61,6 @@
         "stage": 0
       }
     }
-  }
+  },
+  "dependencies": {}
 }
